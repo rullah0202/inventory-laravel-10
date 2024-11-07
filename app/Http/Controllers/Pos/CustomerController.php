@@ -190,10 +190,10 @@ class CustomerController extends Controller
             $payment_details->updated_by = Auth::user()->id;
             $payment_details->save();
 
-              $notification = array(
-            'message' => 'Invoice Update Successfully', 
-            'alert-type' => 'success'
-        );
+            $notification = array(
+                'message' => 'Invoice Update Successfully', 
+                'alert-type' => 'success'
+            );
         return redirect()->route('credit.customer')->with($notification); 
         }
 
@@ -235,7 +235,7 @@ class CustomerController extends Controller
 
     public function CustomerWisePaidReport(Request $request){
 
-         $allData = Payment::where('customer_id',$request->customer_id)->where('paid_status','!=','full_due')->get();
+        $allData = Payment::where('customer_id',$request->customer_id)->where('paid_status','!=','full_due')->get();
         return view('backend.pdf.customer_wise_paid_pdf',compact('allData'));
     }// End Method
 
