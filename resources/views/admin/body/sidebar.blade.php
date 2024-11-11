@@ -8,20 +8,20 @@
         <ul class="metismenu list-unstyled" id="side-menu">
             <li class="menu-title">Menu</li>
 
-            <li>
+            <li class="{{ Request::is('/dashboard') ? 'active' : '' }}">
                 <a href="{{ route('dashboard') }}" class="waves-effect">
                     <i class="fas fa-home"></i><span class="badge rounded-pill bg-success float-end">3</span>
                     <span>Dashboard</span>
                 </a>
             </li>
 
-            <li>
+            <li class="{{ Request::is('/supplier/all')||Request::is('/supplier/add')||Request::is('/supplier/edit')||Request::is('/supplier/*') ? 'active' : '' }}" >
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                     <i class="ri-hotel-fill"></i>
                     <span>Manage Suppliers</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="{{ route('supplier.all') }}">All Supplier</a></li>
+                    <li class="{{ Request::is('/supplier/all') ? 'active' : '' }}"><a href="{{ route('supplier.all') }}">All Supplier</a></li>
                 </ul>
             </li>
 
